@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>Hotels List</h1>
+
+    <!-- Hotel List -->
+    <h2>Registered Hotels</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Logo</th>
+          <th>QR Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% hotels.forEach(hotel => { %>
+          <tr>
+            <td><a href="/guest/onboarding/<%= hotel.id %>"><%= hotel.name %></a></td>
+            <td><%= hotel.address %></td>
+            <td><img src="<%= hotel.logo %>" alt="Hotel Logo" style="width: 100px;"></td>
+            <td><img src="<%= hotel.qrCode %>" alt="QR Code" style="width: 100px;"></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

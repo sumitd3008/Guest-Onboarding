@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Guest Form</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>Welcome to <%= hotel.name %></h1>
+    <p><strong>Address:</strong> <%= hotel.address %></p>
+    <img src="<%= hotel.logo %>" alt="Hotel Logo" class="mb-5" style="width: 200px;">
+
+    <!-- Guest Form -->
+    <form action="/guests" method="POST">
+      <input type="hidden" name="hotelId" value="<%= hotel._id %>">
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" name="fullName" id="fullName" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="mobileNumber">Mobile Number</label>
+        <input type="text" name="mobileNumber" id="mobileNumber" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="purposeOfVisit">Purpose of Visit</label>
+        <select name="purposeOfVisit" id="purposeOfVisit" class="form-control">
+          <option value="Business">Business</option>
+          <option value="Personal">Personal</option>
+          <option value="Tourist">Tourist</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</body>
+</html>

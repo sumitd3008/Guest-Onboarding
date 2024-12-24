@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Guest Admin Panel</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>Guest Details</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Mobile Number</th>
+          <th>Purpose</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% guests.forEach(guest => { %>
+          <tr>
+            <td><%= guest.fullName %></td>
+            <td><%= guest.mobileNumber %></td>
+            <td><%= guest.purposeOfVisit %></td>
+            <td>
+              <a href="/guests/edit/<%= guest._id %>" class="btn btn-warning">Edit</a>
+              <a href="/guests/view/<%= guest._id %>" class="btn btn-info">View</a>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
